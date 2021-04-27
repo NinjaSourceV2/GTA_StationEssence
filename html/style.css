@@ -1,0 +1,61 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+
+
+/*Resolution 1920 x ..*/
+
+.progress-fuel {
+    position: relative;
+    top: 809px;
+    left: 15px;
+    width: 275px;
+    height: 15px;
+    border-radius: 2px;
+    margin: 2px;
+    overflow: hidden;
+}
+
+
+/*Resolution 1600 x ..*/
+
+@media screen and (max-width: 1600px) {
+    .progress-fuel {
+        position: relative;
+        top: 669px;
+        left: 15px;
+        width: 225px;
+        height: 15px;
+        border-radius: 2px;
+        margin: 2px;
+        overflow: hidden;
+    }
+}
+
+
+/*Resolution 1280 x ..*/
+
+@media screen and (max-width: 1280px) {
+    .progress-fuel {
+        position: relative;
+        top: 535px;
+        left: 15px;
+        width: 175px;
+        height: 15px;
+        border-radius: 2px;
+        margin: 2px;
+        overflow: hidden;
+    }
+}
+
+.progress-fuel {
+    background: #4e4e4e80;
+}
+
+.progress-fuel .progressfill {
+    border-radius: 2px;
+    width: 0%;
+    height: 100%;
+    background: #2f2f2f98;
+}
