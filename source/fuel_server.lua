@@ -4,8 +4,8 @@ AddEventHandler('fuel-bidon:RequestPaid', function(price)
     local license = GetPlayerIdentifiers(source)[1]
 	local amount = Round(price)
 
-    TriggerEvent('GTA:GetUserQtyItem', source, "Argent-Propre", function(argentPropreQty)
-		if argentPropreQty >= amount then
+	TriggerEvent('GTA_Inventaire:GetItemQty', source, "cash", function(qtyItem, itemid)
+		if qtyItem >= amount then
 			TriggerEvent('GTA:RetirerArgentPropre', source, tonumber(amount))
 			TriggerClientEvent('Fuel-Bidon:OnSuccessPaid', source)
 		else
@@ -20,8 +20,8 @@ AddEventHandler('fuel-bidon:RequestFill', function(price)
     local license = GetPlayerIdentifiers(source)[1]
 	local amount = Round(price)
 
-    TriggerEvent('GTA:GetUserQtyItem', source, "Argent-Propre", function(argentPropreQty)
-		if argentPropreQty >= amount then
+	TriggerEvent('GTA_Inventaire:GetItemQty', source, "cash", function(qtyItem, itemid)
+		if qtyItem >= amount then
 			TriggerEvent('GTA:RetirerArgentPropre', source, tonumber(amount))
 			TriggerClientEvent('Fuel-Bidon:OnSuccessFill', source)
 		else
@@ -38,8 +38,8 @@ AddEventHandler('fuel-vehicle:RequestPaid', function(isNearPump, ped, vehicle)
 	local extraCost = Config.PrixPleinEssence / 2 * Config.MultiplicateurDeCouts
 	local amount = Round(extraCost)
 
-    TriggerEvent('GTA:GetUserQtyItem', source, "Argent-Propre", function(argentPropreQty)
-		if argentPropreQty >= amount then
+	TriggerEvent('GTA_Inventaire:GetItemQty', source, "cash", function(qtyItem, itemid)
+		if qtyItem >= amount then
 			TriggerEvent('GTA:RetirerArgentPropre', source, tonumber(amount))
 			TriggerClientEvent('fuel-vehicle:onSuccessPaid', source, isNearPump, ped, vehicle)
 		else

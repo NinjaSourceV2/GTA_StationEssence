@@ -105,9 +105,9 @@ Citizen.CreateThread(function()
 						end
 
 						if GetVehicleFuelLevel(vehicle) < 95 and canFuel then
-							DrawText3Ds(stringCoords.x, stringCoords.y, stringCoords.z + 1.2, "~g~E ~w~pour faire le plein du véhicule")
+							DrawText3Ds(stringCoords.x, stringCoords.y, stringCoords.z + 1.2, "~g~G ~w~pour faire le plein du véhicule")
 
-							if IsControlJustReleased(0, 38) then
+							if IsControlJustReleased(0, 47) then
 								TriggerServerEvent('fuel-vehicle:RequestPaid', isNearPump, ped, vehicle)
 							end
 						elseif not canFuel then
@@ -119,15 +119,15 @@ Citizen.CreateThread(function()
 				elseif isNearPump then
 					local stringCoords = GetEntityCoords(isNearPump)
 					if not HasPedGotWeapon(ped, 883325847) then
-						DrawText3Ds(stringCoords.x, stringCoords.y, stringCoords.z + 1.2, "~g~E ~w~ acheter un bidon d'essence pour ~g~$" .. Config.PrixBidonEssence)
+						DrawText3Ds(stringCoords.x, stringCoords.y, stringCoords.z + 1.2, "~g~G ~w~ acheter un bidon d'essence pour ~g~$" .. Config.PrixBidonEssence)
 
-						if IsControlJustReleased(0, 38) then
+						if IsControlJustReleased(0, 47) then
 							TriggerServerEvent('fuel-bidon:RequestPaid', Config.PrixBidonEssence)
 						end
 					else
-						DrawText3Ds(stringCoords.x, stringCoords.y, stringCoords.z + 1.2, "~g~E ~w~ pour remplir le bidon d'essence")
+						DrawText3Ds(stringCoords.x, stringCoords.y, stringCoords.z + 1.2, "~g~G ~w~ pour remplir le bidon d'essence")
 
-						if IsControlJustReleased(0, 38) then
+						if IsControlJustReleased(0, 47) then
 							TriggerServerEvent('fuel-bidon:RequestFill', Config.PrixBidonEssence)
 						end
 					end
